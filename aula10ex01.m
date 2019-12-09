@@ -1,0 +1,10 @@
+[Image,Color_Map] = imread('Parede_8bit.bmp');
+image(Image);
+colormap(Color_Map);
+Save8bitImage('Parede.raw',Image);
+[N,M,Im] = Load8bitImage('Parede.raw');
+figure();
+image(Im);
+colormap(Color_Map);
+StreamOut = EncodeImage_RLE(Image);
+Save8bitStream('Parede.str',N,M,StreamOut);
